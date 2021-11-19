@@ -13,7 +13,7 @@ function Home() {
       {!loading && !user && (
         <>
           <p>
-            To test the login click in <i>Login</i>
+            To test the login bits click <i>Login</i>
           </p>
           <p>
             Once you have logged in you should be able to click in{' '}
