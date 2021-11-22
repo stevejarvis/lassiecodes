@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from './header'
+import Footer from './footer'
 import globalStyles from '../styles/global.js'
 
 function Layout({ user, loading = false, children }) {
@@ -14,6 +15,8 @@ function Layout({ user, loading = false, children }) {
       <main>
         <div className="container">{children}</div>
       </main>
+
+      <Footer />
 
       <style jsx>{`
         .container {

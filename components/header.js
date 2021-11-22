@@ -20,22 +20,12 @@ function Header({ user, loading }) {
             (user ? (
               <>
                 <li>
-                  <Link href="/profile">
-                    <a>Client-rendered profile</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/advanced/ssr-profile">
-                    <a>Server rendered profile (advanced)</a>
-                  </Link>
-                </li>
-                <li>
-                  <a href="/api/logout">Logout</a>
+                  <a href="/api/auth/logout">Logout</a>
                 </li>
               </>
             ) : (
               <li>
-                <a href="/api/login">Login</a>
+                <a href="/api/auth/login">Login</a>
               </li>
             ))}
         </ul>
