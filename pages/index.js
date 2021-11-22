@@ -8,7 +8,7 @@ function Home() {
 
   return (
     <Layout user={user} loading={isLoading}>
-      <h1>Next.js and Auth0 Example</h1>
+      <h1>Lassie Codes</h1>
 
       {isLoading && <p>Loading login info...</p>}
 
@@ -26,15 +26,16 @@ function Home() {
 
       {user && (
         <>
-          <h4>Rendered user info on the client</h4>
+          <h4>User Info</h4>
           <img src={user.picture} alt="user picture" />
           <p>nickname: {user.nickname}</p>
           <p>name: {user.name}</p>
           <p>primary contact: {primaryContact}</p>
 
+          <h5>Update Phone Number</h5>
           <form onSubmit={updatePrimaryContact}>
-            <label htmlFor="phone number">Phone Number</label>
-            <input id="number" type="phone" autoComplete="phone number" required />
+            <label htmlFor="phone number">Phone Number </label>
+            <input id="number" type="phone" placeholder="phone number" autoComplete="phone number" required />
             <button type="submit">Update</button>
           </form>
         </>
