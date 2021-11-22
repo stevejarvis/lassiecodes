@@ -1,4 +1,5 @@
 import Layout from '../components/layout'
+import QrCode from '../components/qrcode'
 import { useNumberUpdater } from '../lib/user'
 import { useUser } from '@auth0/nextjs-auth0'
 
@@ -30,7 +31,7 @@ function Home() {
           <img src={user.picture} alt="user picture" />
           <p>nickname: {user.nickname}</p>
           <p>name: {user.name}</p>
-          <p>primary contact: {primaryContact}</p>
+          <QrCode contents={primaryContact}/>
 
           <h5>Update Phone Number</h5>
           <form onSubmit={updatePrimaryContact}>

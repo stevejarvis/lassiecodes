@@ -7,7 +7,7 @@ function Layout({ user, loading = false, children }) {
   return (
     <>
       <Head>
-        <title>Next.js with Auth0</title>
+        <title>Lassie Codes</title>
       </Head>
 
       <Header user={user} loading={loading} />
