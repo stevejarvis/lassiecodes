@@ -1,11 +1,12 @@
 import Layout from '../components/layout'
 import QrCode from '../components/qrcode'
-import { useNumberUpdater } from '../lib/user'
+import ContactUpdateForm from '../components/contactform'
+import { useContactUpdater } from '../lib/user'
 import { useUser } from '@auth0/nextjs-auth0'
 
 function Home() {
   const { user, error, isLoading } = useUser()
-  const { primaryContact, updatePrimaryContact } = useNumberUpdater()
+  const { primaryContact, updatePrimaryContact } = useContactUpdater()
 
   return (
     <Layout user={user} loading={isLoading}>
@@ -31,14 +32,9 @@ function Home() {
           <img src={user.picture} alt="user picture" />
           <p>nickname: {user.nickname}</p>
           <p>name: {user.name}</p>
-          <QrCode contents={primaryContact}/>
+          <QrCode primaryContact={primaryContact} subjectName={user.given_name}/>
 
-          <h5>Update Phone Number</h5>
-          <form onSubmit={updatePrimaryContact}>
-            <label htmlFor="phone number">Phone Number </label>
-            <input id="number" type="phone" placeholder="phone number" autoComplete="phone number" required />
-            <button type="submit">Update</button>
-          </form>
+          <ContactUpdateForm submitFunc={updatePrimaryContact}/>
         </>
       )}
     </Layout>
