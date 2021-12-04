@@ -1,11 +1,17 @@
 import css from 'styled-jsx/css'
 
-export default css.header`
+export default css.footer`
+  footer {
+    background-color: #eee;
+  }
   ul {
-    display: flex;
     list-style: none;
     margin-left: 0;
     padding-left: 0;
+  }
+  nav {
+    max-width: 42rem;
+    margin: 1.5rem auto;
   }
   li {
     margin-right: 1rem;
@@ -16,11 +22,8 @@ export default css.header`
   a {
     text-decoration: none;
   }
-  button {
-    font-size: 1rem;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    background: none;
+  .linksgrid {
+    display: grid;
+    grid-template-columns: auto auto;
   }
 `

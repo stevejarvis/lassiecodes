@@ -5,7 +5,7 @@ import globalStyles from '../styles/global.js'
 
 function Layout({ user, loading = false, children }) {
   return (
-    <>
+    <div className="rootcontainer">
       <Head>
         <title>Lassie Codes</title>
       </Head>
@@ -18,16 +18,10 @@ function Layout({ user, loading = false, children }) {
 
       <Footer />
 
-      <style jsx>{`
-        .container {
-          max-width: 42rem;
-          margin: 1.5rem auto;
-        }
-      `}</style>
       <style jsx global>
         {globalStyles}
       </style>
-    </>
+    </div>
   )
 }
 

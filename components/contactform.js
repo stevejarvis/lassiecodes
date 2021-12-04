@@ -1,17 +1,24 @@
 import contactFormStyles from '../styles/contact-form.js'
 
-function ContactUpdateForm({ submitFunc }) {
+function ContactUpdateForm({ submitFunc, primaryContact }) {
   /**
    * Component renders the form for updating primary contact.
    */
+
+  const phonePlaceholder = (primaryContact && primaryContact.number) ? primaryContact.number : "Phone number"
+  const contactPlaceholder = (primaryContact && primaryContact.name) ? primaryContact.name : "Contact name"
+
   return (
     <div>
-      <h5>Update Phone Number</h5>
       <form onSubmit={submitFunc}>
-        <label htmlFor="phone number">Phone Number </label>
-        <input id="number" type="phone" placeholder="contact phone number" autoComplete="phone number" required />
-        <label htmlFor="name">Contact Name </label>
-        <input id="name" type="name" placeholder="contact name" autoComplete="name" required />
+        <div>
+          <label htmlFor="number">Phone Number</label>
+          <input id="number" type="tel" placeholder={phonePlaceholder} required />
+        </div>
+        <div>
+          <label htmlFor="name">Contact Name</label>
+          <input id="name" type="text" placeholder={contactPlaceholder} required />
+        </div>
         <button type="submit">Update</button>
       </form>
     </div>

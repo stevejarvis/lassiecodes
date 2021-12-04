@@ -4,13 +4,31 @@ import footerStyles from '../styles/footer.js'
 function Footer() {
   return (
     <footer>
-      <ul>
-        <li>
-          <Link href="/privacy">
-            <a>Privacy Policy</a>
-          </Link>
-        </li>
-      </ul>
+      <div className="linksgrid">
+        <nav>
+          <ul>
+            <li>
+              <a href="https://github.com/stevejarvis/lassiecodes" target="_">Open Source on Github</a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav>
+          <ul>
+            <li>
+              <Link href="/privacy">
+                <a>Privacy Policy</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms">
+                <a>Terms & Conditions</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
       <style jsx>
         {footerStyles}
       </style>
