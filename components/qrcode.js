@@ -8,7 +8,7 @@ function QrCode({ primaryContact, subjectName }) {
    */
   const canvasId = 'qrCodeCanvas'
   const helperCanvasId = 'otherQrCodeCanvas'
-  const width = 390
+  const width = 300
   const height = 150
   // https://www.npmjs.com/package/qrcode#qr-code-options
   const qrOptions = {

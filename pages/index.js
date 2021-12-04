@@ -6,7 +6,7 @@ import { useUser } from '@auth0/nextjs-auth0'
 
 function Home() {
   const { user, error, isLoading } = useUser()
-  const { primaryContact, updatePrimaryContact } = useContactUpdater()
+  const { primaryContact, updatePrimaryContact, setActivePrimaryContact } = useContactUpdater()
 
   return (
     <Layout user={user} loading={isLoading}>
@@ -17,12 +17,10 @@ function Home() {
       {!isLoading && !user && (
         <>
           <p>
-            To test the login bits click <i>Login</i>
+            To save your stuff, click <i>Login</i>
           </p>
-          <p>
-            Once you have logged in you should be able to click in{' '}
-            <i>Profile</i> and <i>Logout</i>
-          </p>
+          <QrCode primaryContact={primaryContact}/>
+          <ContactUpdateForm submitFunc={setActivePrimaryContact}/>
         </>
       )}
 
@@ -33,7 +31,6 @@ function Home() {
           <p>nickname: {user.nickname}</p>
           <p>name: {user.name}</p>
           <QrCode primaryContact={primaryContact} subjectName={user.given_name}/>
-
           <ContactUpdateForm submitFunc={updatePrimaryContact}/>
         </>
       )}
