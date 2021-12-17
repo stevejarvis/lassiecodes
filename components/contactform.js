@@ -1,4 +1,4 @@
-import contactFormStyles from '../styles/contact-form.js'
+import contactFormStyles from '../styles/contactform.js'
 
 function ContactUpdateForm({ submitFunc, primaryContact }) {
   /**
@@ -11,16 +11,21 @@ function ContactUpdateForm({ submitFunc, primaryContact }) {
   return (
     <div>
       <form onSubmit={submitFunc}>
-        <div>
+        <div className="formbox">
           <label htmlFor="number">Phone Number</label>
           <input id="number" type="tel" placeholder={phonePlaceholder} required />
         </div>
-        <div>
+        <div className="formbox">
           <label htmlFor="name">Contact Name</label>
           <input id="name" type="text" placeholder={contactPlaceholder} required />
         </div>
-        <button type="submit">Update</button>
+        <button className="formbox" type="submit">Generate Code</button>
       </form>
+
+      <style jsx>
+        {contactFormStyles}
+      </style>
+
     </div>
   )
 }

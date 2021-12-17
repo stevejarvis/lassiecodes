@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import headerStyles from '../styles/header.js'
+import { Image } from 'react-bootstrap'
 
 function Header({ user, loading }) {
   return (
@@ -19,6 +20,7 @@ function Header({ user, loading }) {
           {!loading &&
             (user ? (
               <>
+                <Image src={user.picture} roundedCircle fluid />
                 <li>
                   <a href="/api/auth/logout">Logout</a>
                 </li>
