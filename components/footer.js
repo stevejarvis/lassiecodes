@@ -10,6 +10,9 @@ function Footer() {
             <li>
               <a href="https://github.com/stevejarvis/lassiecodes" target="_">Open Source on Github</a>
             </li>
+            <li>
+              <a href="https://twitter.com/stevenjarvis" target="_">Say Hi on Twitter</a>
+            </li>
           </ul>
         </nav>
 

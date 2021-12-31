@@ -17,7 +17,7 @@ function Home() {
       {!isLoading && !user && (
         <>
           <p>
-            To save your stuff, just <a href="/api/auth/login">Login</a>.
+            To save your stuff and add your own name, just <a href="/api/auth/login">Login</a>.
           </p>
           <ContactUpdateForm submitFunc={setActivePrimaryContact}/>
           <QrCode primaryContact={primaryContact}/>
