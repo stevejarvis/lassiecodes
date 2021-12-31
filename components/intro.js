@@ -11,22 +11,25 @@ function Intro() {
       <div className="row">
         <div className='col-5 align-self-center'>
           <p>
-            <em>1. Generate and print the code below. Stick it somewhere visible.</em>
+            1. Generate the code at the bottom of the page. Print it and stick it somewhere visible.
           </p>
         </div>
         <div className='col-7'>
-          <Image src='./lookout_mtn.jpeg' fluid/>
+          <Image src='./goodboy.jpg' fluid/>
         </div>
       </div>
 
       <div className="row">
-        <div className='col-7'>
-          <Image src='./lookout_mtn.jpeg' fluid/>
+        <div className='col-6'>
+          <Image src='./helmet.jpg' fluid/>
         </div>
-        <div className='col-5 align-self-center'>
+        <div className='col-3 align-self-center'>
           <p>
-            <em>2. Scan with the phone's camera app in case of emergency.</em>
+            2. Scan with the phone's camera app in case of emergency.
           </p>
+        </div>
+        <div className='col-3'>
+          <Image src='./scan.png' fluid/>
         </div>
       </div>
 

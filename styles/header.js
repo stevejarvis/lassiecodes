@@ -33,4 +33,8 @@ export default css.header`
     border: none;
     background: none;
   }
+  img {
+    height: max-height: 50%
+    padding: 1em;
+  }
 `

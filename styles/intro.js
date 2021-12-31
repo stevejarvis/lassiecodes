@@ -10,6 +10,6 @@ export default css.intro`
   }
 
   p {
-    font-size: 1.3em;
+    font-size: 1.0em;
   }
 `

@@ -24,11 +24,14 @@ function About() {
         use the camera app on their smartphone to read the code and make the call.
       </p>
       <p>
-        The QR codes offered here aren't anything terribly novel; they 
+        The QR codes offered here aren't anything too crazy; they 
         <a href="https://github.com/zxing/zxing/wiki/Barcode-Contents#telephone-numbers" target="_"> encode telephone numbers </a> 
         that modern smartphone cameras are programmed to act on by prompting to call the number. The codes
         here are tailored to the "call emergency contact" use case by including helpful text and being 
-        a convenient but noticeable size.
+        a convenient but noticeable size. Simple and effective.
+      </p>
+      <p>
+        Ride fast, ride safe.
       </p>
     </Layout>
   )

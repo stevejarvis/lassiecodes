@@ -20,7 +20,7 @@ function Header({ user, loading }) {
           {!loading &&
             (user ? (
               <>
-                <Image src={user.picture} roundedCircle fluid />
+                <Image src={user.picture} roundedCircle />
                 <li>
                   <a href="/api/auth/logout">Logout</a>
                 </li>
