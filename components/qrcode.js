@@ -1,6 +1,7 @@
 import qrcodeStyles from '../styles/qrcode.js'
 import { useEffect } from 'react'
 import QRCode from 'qrcode'
+import Button from 'react-bootstrap/Button'
 
 function QrCode({ primaryContact, subjectName }) {
   /**
@@ -78,14 +79,14 @@ function QrCode({ primaryContact, subjectName }) {
           {qrcodeStyles}
         </style>
       </canvas>
-      <button id="downloadButton" onClick={(e) => downloadImage(e)}>
+      <Button id="downloadButton" onClick={(e) => downloadImage(e)}>
         Download
         <style jsx>{`
           button {
             display: none;
           }
         `}</style>
-      </button>
+      </Button>
       <canvas id={helperCanvasId}>
         <style jsx>{`
           canvas {

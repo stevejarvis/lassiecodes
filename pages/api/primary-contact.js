@@ -1,7 +1,7 @@
 import { withApiAuthRequired, getSession } from '@auth0/nextjs-auth0'
 import { ManagementClient } from 'auth0'
 
-async function updatePrimacyContact(userId, primaryContact, client) {
+async function updatePrimaryContact(userId, primaryContact, client) {
   const updatedUser = await client.updateUserMetadata(
     { id: userId },
     { primaryContact: primaryContact }
@@ -36,7 +36,7 @@ export default withApiAuthRequired(async function primaryContact(req, res) {
         res.status(400, 'No primary contact found.')
         return
       }
-      const user = await updatePrimacyContact(userId, primaryContact, currentUserManagementClient)
+      const user = await updatePrimaryContact(userId, primaryContact, currentUserManagementClient)
       res.status(200).json(user)
     } else if (req.method === 'GET') {
       const user = await getPrimacyContact(userId, currentUserManagementClient)

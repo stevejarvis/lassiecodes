@@ -1,35 +1,64 @@
 import Layout from '../components/layout'
 import QrCode from '../components/qrcode'
 import Intro from '../components/intro'
-import ContactUpdateForm from '../components/contactform'
+import UpdateContactUpdateForm from '../components/updatecontactform'
+import NfcTagRequestForm from '../components/nfcrequestform'
 import { useContactUpdater } from '../lib/user'
+import { useRequestSubmitter } from '../lib/nfcrequest'
 import { useUser } from '@auth0/nextjs-auth0'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 
 function Home() {
   const { user, error, isLoading } = useUser()
   const { primaryContact, updatePrimaryContact, setActivePrimaryContact } = useContactUpdater()
+  const { submitNfcTagRequest } = useRequestSubmitter()
 
   return (
     <Layout user={user} loading={isLoading}>
       <Intro/>
       <h1>Lassie Codes</h1>
-      {isLoading && <p>Loading login info...</p>}
-      {!isLoading && !user && (
-        <>
-          <p>
-            To save your stuff and add your own name, just <a href="/api/auth/login">Login</a>.
-          </p>
-          <ContactUpdateForm submitFunc={setActivePrimaryContact}/>
-          <QrCode primaryContact={primaryContact}/>
-        </>
-      )}
+      <p>
+        There are two options for a code: A QR code and an NFC tag.
+      </p>
 
-      {user && (
-        <>
-          <ContactUpdateForm submitFunc={updatePrimaryContact}/>
-          <QrCode primaryContact={primaryContact} subjectName={user.given_name}/>
-        </>
-      )}
+      <Tabs defaultActiveKey="nfc" id="code-select" className="mb-3">
+        <Tab eventKey="qr" title="QR (you print)">
+          {isLoading && <p>Loading login info...</p>}
+          {!isLoading && !user && (
+            <>
+              <p>
+                To save your stuff and include your own name, just <a href="/api/auth/login">Login</a>.
+              </p>
+              <UpdateContactUpdateForm submitFunc={setActivePrimaryContact}/>
+              <QrCode primaryContact={primaryContact}/>
+            </>
+          )}
+
+          {user && (
+            <>
+              <UpdateContactUpdateForm submitFunc={updatePrimaryContact} primaryContact={primaryContact}/>
+              <QrCode primaryContact={primaryContact} subjectName={user.given_name}/>
+            </>
+          )}
+        </Tab>
+        <Tab eventKey="nfc" title="NFC (we ship)">
+          {isLoading && <p>Loading login info...</p>}
+          {!isLoading && !user && (
+            <>
+              <p>
+                To request an NFC tag, you must <a href="/api/auth/login">Login</a>.
+              </p>
+            </>
+          )}
+
+          {user && (
+            <>
+              <NfcTagRequestForm requestFunc={submitNfcTagRequest}/>
+            </>
+          )}
+        </Tab>
+      </Tabs>
     </Layout>
   )
 }
