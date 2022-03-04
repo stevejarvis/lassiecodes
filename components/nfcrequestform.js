@@ -18,14 +18,22 @@ function NfcTagRequestForm({ requestFunc }) {
     <Form onSubmit={requestFunc}>
       <Form.Group className="mb-3" controlId="number">
         <Form.Label>Contact phone</Form.Label>
-        <Form.Control type="tel" placeholder="Enter contact phone number" />
+        <Form.Control required type="tel" placeholder="Enter emergency contact phone number" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="name">
         <Form.Label>Contact name</Form.Label>
-        <Form.Control type="text" placeholder="Enter contact name" />
+        <Form.Control required type="text" placeholder="Enter emergency contact name" />
         <Form.Text className="text-muted">
           We'll never share your info with anyone else.
         </Form.Text>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="mailing-street">
+        <Form.Label>Street address</Form.Label>
+        <Form.Control required type="text" placeholder="Enter street for mailing address" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="mailing-city">
+        <Form.Label>City, State, and Zip address</Form.Label>
+        <Form.Control required type="text" placeholder="Enter city, state, and zip for mailing address" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="message">
         <Form.Label>Comments or notes</Form.Label>

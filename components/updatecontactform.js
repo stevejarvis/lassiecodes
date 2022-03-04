@@ -14,11 +14,11 @@ function UpdateContactUpdateForm({ submitFunc, primaryContact }) {
     <Form onSubmit={submitFunc}>
       <Form.Group className="mb-3" controlId="number">
         <Form.Label>Contact phone</Form.Label>
-        <Form.Control type="tel" placeholder="Enter contact phone number" />
+        <Form.Control required type="tel" placeholder="Enter contact phone number" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="name">
         <Form.Label>Contact name</Form.Label>
-        <Form.Control type="text" placeholder="Enter contact name" />
+        <Form.Control required type="text" placeholder="Enter contact name" />
         <Form.Text className="text-muted">
           We'll never share your info with anyone else.
         </Form.Text>
