@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import QrCode from '../components/qrcode'
-import Intro from '../components/intro'
+import QrIntro from '../components/qrintro'
 import UpdateContactUpdateForm from '../components/updatecontactform'
 import NfcTagRequestForm from '../components/nfcrequestform'
 import { useContactUpdater } from '../lib/user'
@@ -16,13 +16,13 @@ function Home() {
 
   return (
     <Layout user={user} loading={isLoading}>
-      <Intro/>
+      <QrIntro/>
       <h1>Lassie Codes</h1>
       <p>
         There are two options for a code: A QR code and an NFC tag.
       </p>
 
-      <Tabs defaultActiveKey="nfc" id="code-select" className="mb-3">
+      <Tabs defaultActiveKey="qr" id="code-select" className="mb-3">
         <Tab eventKey="qr" title="QR (you print)">
           {isLoading && <p>Loading login info...</p>}
           {!isLoading && !user && (
