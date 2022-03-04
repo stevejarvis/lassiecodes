@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import footerStyles from '../styles/footer.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Footer() {
   return (
@@ -8,10 +9,10 @@ function Footer() {
         <nav>
           <ul>
             <li>
-              <a href="https://github.com/stevejarvis/lassiecodes" target="_">Open Source on Github</a>
+              <FontAwesomeIcon icon={["fab", "github"]}/><a href="https://github.com/stevejarvis/lassiecodes" target="_"> Source on Github</a>
             </li>
             <li>
-              <a href="https://twitter.com/stevenjarvis" target="_">Say Hi on Twitter</a>
+              <FontAwesomeIcon icon={["fab", "twitter"]}/><a href="https://twitter.com/stevenjarvis" target="_"> Reach out on Twitter</a>
             </li>
           </ul>
         </nav>

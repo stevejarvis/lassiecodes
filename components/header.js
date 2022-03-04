@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import headerStyles from '../styles/header.js'
-import { Image } from 'react-bootstrap'
 
 function Header({ user, loading }) {
   return (
@@ -13,8 +12,8 @@ function Header({ user, loading }) {
             </Link>
           </li>
           <li>
-            <Link href="/about">
-              <a>About</a>
+            <Link href="/support">
+              <a>Support</a>
             </Link>
           </li>
           {!loading &&
