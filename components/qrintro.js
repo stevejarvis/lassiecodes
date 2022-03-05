@@ -11,7 +11,7 @@ function QrIntro() {
 
       <CardGroup>
         <div className="row">
-          <div class="col-md-6">
+          <div class="col-md-7">
             <Card>
               <Card.Body>
                 <Card.Title>1. Create</Card.Title>
@@ -22,15 +22,15 @@ function QrIntro() {
               </Card.Body>
             </Card>
           </div>
-          <div className='col-md-6'>
+          <div className='col-md-5'>
             <Image src='./goodboy.jpg' fluid/>
           </div>
         </div>
         <div className="row">
-          <div className='col-md-4'>
+          <div className='col-md-5'>
             <Image src='./helmet.jpg' fluid/>
           </div>
-          <div className='col-md-5'>
+          <div className='col-md-4'>
             <Card>
               <Card.Body>
                 <Card.Title>2. Scan</Card.Title>
@@ -41,7 +41,7 @@ function QrIntro() {
             </Card>
           </div>
           <div className='col-md-3'>
-            <Image src='./scan.png' fluid/>
+            <Image src='./scan_cropped.jpeg' fluid/>
           </div>
         </div>
       </CardGroup>
