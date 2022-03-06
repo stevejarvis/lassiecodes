@@ -37,7 +37,7 @@ function Support() {
 
       <h1>FAQ</h1>
       { Faq(
-        'what-if-damaged',
+        'what-if-qr-damaged',
         'What if a QR code gets damaged?',
         `QR codes are surprisingly resilient to damage, so if you see one that is scraped up from a crash, 
         it's still worth a try. There certainly is a limit to the amount of code that can be damaged and 
@@ -48,10 +48,17 @@ function Support() {
       ) }
 
       { Faq(
+        'what-if-nfc-damaged',
+        'What if an NFC tag gets damaged?',
+        `NFC tags are not resilient to damage. If a tag gets damaged, it will need to be replaced.`
+      ) }
+
+      { Faq(
         'how-well-do-these-codes-work',
         'How well do these work?', 
         `Great question! Most smartphones these days are capable of triggering phone calls from QR codes and NFC tags 
-        without any extra apps. QR codes are just scanned when in the camera frame, and NFC tags are scanned when they  
+        without any extra apps. It's just nice builtin functionality the phone is ready to do out of the box. 
+        QR codes are just scanned when in the camera frame, and NFC tags are scanned when they  
         come near of the phone's NFC reader (within a few centimeters).
         However, the functionality is not universal, so it's recommended to have those you ride with test that their 
         phones do have these features. It's also recommended that the codes are tested from time-to-time to ensure 
