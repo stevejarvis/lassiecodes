@@ -12,7 +12,7 @@ const ordersConvoId = process.env.SLACK_ORDERS_CHANNEL;
 
 const web = new WebClient(token);
 
-async function sendToSlack(userId, user, primaryContact, message) {
+async function sendToSlack(userId, user, primaryContact, mailingAddress, message) {
   const res = await web.chat.postMessage({
     channel: ordersConvoId,
     text: `(Fallback) From: ${user} - ${message}.`,
@@ -42,6 +42,13 @@ async function sendToSlack(userId, user, primaryContact, message) {
         "type": "section",
         "text": {
           "type": "mrkdwn",
+          "text": `_mailing address_ ${JSON.stringify(mailingAddress)}\n`
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
           "text": `${message}`
         }
       },
@@ -55,7 +62,8 @@ async function sendToSlack(userId, user, primaryContact, message) {
 export default withApiAuthRequired(async function toSlack(req, res) {
   try {
     const primaryContact = req.body.primaryContact
-    const message = req.body.message
+    let mailingAddress = req.body.mailingAddress
+    let message = req.body.message
 
     const session = await getSession(req, res)
     const userId = session.user.sub
@@ -66,7 +74,14 @@ export default withApiAuthRequired(async function toSlack(req, res) {
         res.status(400, 'No primary contact found.')
         return
       }
-      await sendToSlack(userId, userName, primaryContact, message)
+      if (!req.body || !req.body.mailingAddress) {
+        // This is a problem but we're going to try pushing through.
+        mailingAddress = '(Unknown, it was missing somehow but we pushed on.)'
+      }
+      if (!message) {
+        message = "None"
+      }
+      await sendToSlack(userId, userName, primaryContact, mailingAddress, message)
       res.status(200).json({})
     } else {
       res.status(405).json({ message: 'What this is?' })

@@ -1,3 +1,4 @@
+import consentCheckbox from './consent-checkbox.js'
 import contactFormStyles from '../styles/contactform.js'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -23,6 +24,7 @@ function UpdateContactUpdateForm({ submitFunc, primaryContact }) {
           We'll never share your info with anyone else.
         </Form.Text>
       </Form.Group>
+      { consentCheckbox() }
       <Button variant="primary" type="submit">
         Generate Code
       </Button>

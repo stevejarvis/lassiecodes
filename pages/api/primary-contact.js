@@ -1,11 +1,15 @@
 import { withApiAuthRequired, getSession } from '@auth0/nextjs-auth0'
 import { ManagementClient } from 'auth0'
 
-async function updatePrimaryContact(userId, primaryContact, client) {
-  const updatedUser = await client.updateUserMetadata(
-    { id: userId },
-    { primaryContact: primaryContact }
-  )
+async function updatePrimaryContact(userId, primaryContact, mailingAddress, client) {
+  /**
+   * mailingAddress might be nil or undefined.
+   */
+  let updateBody = { primaryContact: primaryContact }
+  if (mailingAddress) {
+    updateBody['mailingAddress'] = mailingAddress
+  }
+  const updatedUser = await client.updateUserMetadata( { id: userId }, updateBody)
   return updatedUser
 }
 
@@ -17,6 +21,11 @@ async function getPrimacyContact(userId, client) {
 }
 
 export default withApiAuthRequired(async function primaryContact(req, res) {
+  /**
+   * Body should contain at least `primaryContact`. Might also contain `mailingAddress`.
+   * Could potentially be split up into different calls, but as of now the latter
+   * won't happen without the former.
+   */
   try {
     const primaryContact = req.body.primaryContact
 
@@ -36,7 +45,7 @@ export default withApiAuthRequired(async function primaryContact(req, res) {
         res.status(400, 'No primary contact found.')
         return
       }
-      const user = await updatePrimaryContact(userId, primaryContact, currentUserManagementClient)
+      const user = await updatePrimaryContact(userId, primaryContact, req.body.mailingAddress, currentUserManagementClient)
       res.status(200).json(user)
     } else if (req.method === 'GET') {
       const user = await getPrimacyContact(userId, currentUserManagementClient)
