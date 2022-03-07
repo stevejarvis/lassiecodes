@@ -6,6 +6,7 @@ import NfcTagRequestForm from '../components/nfcrequestform'
 import { useContactUpdater } from '../lib/user'
 import { useRequestSubmitter } from '../lib/nfcrequest'
 import { useUser } from '@auth0/nextjs-auth0'
+import Link from 'next/link'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Button from 'react-bootstrap/Button'
@@ -20,7 +21,8 @@ function Home() {
       <QrIntro/>
       <h1>Lassie Codes</h1>
       <p>
-        There are two options for a code: A QR code and an NFC tag.
+        There are two options for a code: A QR code and an NFC tag. It's mostly personal preference with 
+        no right or wrong answer, but you can learn more about the options in the <Link href="/support#faq">FAQ</Link>.
       </p>
 
       <Tabs defaultActiveKey="qr" id="code-select" className="mb-3">
