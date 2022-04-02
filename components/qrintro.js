@@ -11,7 +11,7 @@ function QrIntro() {
 
       <CardGroup>
         <div className="row">
-          <div class="col-md-7">
+          <div className="col-md-7">
             <Card>
               <Card.Body>
                 <Card.Title>1. Create</Card.Title>
