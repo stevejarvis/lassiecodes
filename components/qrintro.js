@@ -28,7 +28,7 @@ function QrIntro() {
         </div>
         <div className="row">
           <div className='col-md-5'>
-            <Image src='./helmet.jpg' fluid/>
+            <Image src='./helmet_nfc.jpeg' fluid/>
           </div>
           <div className='col-md-4'>
             <Card>

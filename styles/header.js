@@ -19,7 +19,7 @@ export default css.header`
   li {
     margin-right: 1rem;
   }
-  li:nth-child(2) {
+  li:nth-child(3) {
     margin-right: auto;
   }
   a {
@@ -32,9 +32,5 @@ export default css.header`
     cursor: pointer;
     border: none;
     background: none;
-  }
-  img {
-    height: max-height: 50%
-    padding: 1em;
   }
 `
