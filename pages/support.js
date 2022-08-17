@@ -91,6 +91,17 @@ function Support() {
         they are still working and not damaged.`
       ) }
 
+      { Faq(
+        'nfc-tag-slow-to-scan',
+        'Why is the NFC tag slow to scan?', 
+        `Even though most smartphones from the past few years support NFC tags, scanning them
+        can be a bit tricky. And for a couple reasons. In order to preserve battery life phones don't 
+        look for tags 100% of the time, they turn the antenna on and off. And the range for NFC 
+        is quite small (like less than a few centimeters). So in all, that means the part of 
+        your phone that has the antenna (likely the top) needs to be very close to the 
+        sticker for a few seconds.`
+      ) }
+
     </Layout>
   )
 }

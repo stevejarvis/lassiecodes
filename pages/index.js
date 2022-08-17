@@ -21,7 +21,7 @@ function Home() {
       <QrIntro/>
       <h1>Lassie Codes</h1>
       <p>
-        There are two options for a code: A QR code and an NFC tag. It's mostly personal preference with 
+        There are <em>two options</em> for a code: A QR code or an NFC tag. It's mostly personal preference with 
         no right or wrong answer, but you can learn more about the options in the <Link href="/support#faq">FAQ</Link>.
       </p>
 
